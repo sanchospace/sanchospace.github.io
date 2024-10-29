@@ -1,1 +1,36 @@
-<script type="text/javascript">(function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A3725068-bf0a-494c-a2f7-ccc70e322b9f1.js','script','impactStat',document,window);impactStat('transformLinks');impactStat('trackImpression');</script>
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = 'アカサタナハマヤラワガザダバパイキシチニヒミリギジヂビピウクスツヌフムユルグズヅブプエケセテネヘメレゲゼデベペオコソトノホモヨロヲゴゾドボポ0123456789';
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const drops = Array.from({ length: columns }).fill(1);
+
+function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#00f');
+    gradient.addColorStop(1, '#f0f');
+
+    ctx.fillStyle = gradient;
+    ctx.font = `${fontSize}px monospace`;
+
+    drops.forEach((y, index) => {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        const x = index * fontSize;
+        ctx.fillText(text, x, y * fontSize);
+
+        if (y * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[index] = 0;
+        }
+        drops[index]++;
+    });
+}
+
+setInterval(draw, 33);
