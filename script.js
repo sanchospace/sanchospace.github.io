@@ -14,7 +14,7 @@ function draw() {
 
     const img = new Image();
     img.src = 'imgs/sadako.jpg';
-    img.onload = function() {
+    img.onload = function(blend) {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
         ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
