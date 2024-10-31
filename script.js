@@ -13,7 +13,7 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const img = new Image();
-    img.src = 'imgs/sadako.jpg';
+    img.src = '';
     img.onload = function(blend) {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
