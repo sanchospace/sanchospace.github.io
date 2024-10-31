@@ -12,31 +12,28 @@ function draw() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#00f');
+    gradient.addColorStop(1, '#f0f');
+    ctx.fillStyle = gradient;
+    ctx.font = `${fontSize}px monospace`;
+
+    drops.forEach((y, index) => {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        const x = index * fontSize;
+        ctx.fillText(text, x, y * fontSize);
+
+        if (y * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[index] = 0;
+        }
+        drops[index]++;
+    });
+
+    ctx.globalCompositeOperation = 'source-over'; // Draw the image on top of the rain
     const img = new Image();
     img.src = 'imgs/sadako.jpg'; // Set the image source
     img.onload = function () {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-        gradient.addColorStop(0, '#00f');
-        gradient.addColorStop(1, '#f0f');
-        ctx.fillStyle = gradient;
-        ctx.font = `${fontSize}px monospace`;
-
-        drops.forEach((y, index) => {
-            const text = letters[Math.floor(Math.random() * letters.length)];
-            const x = index * fontSize;
-            ctx.fillText(text, x, y * fontSize);
-
-            if (y * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[index] = 0;
-            }
-            drops[index]++;
-        });
-
-        ctx.globalCompositeOperation = 'multiply';
     };
 }
 
