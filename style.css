@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+}
+canvas {
+    display: block;
+}
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place the image behind the canvas */
+    opacity: 0.5; /* Adjust opacity for blending */
+    background-image: url('imgs/sadako.jpg');
+    background-size: cover;
+    background-position: center;
+}
