@@ -28,6 +28,16 @@ function draw() {
         }
         drops[index]++;
     });
+
+    // Set the blending mode to multiply
+    ctx.globalCompositeOperation = 'multiply';
+
+    // Draw the image
+    const img = new Image();
+    img.src = 'imgs/sadako.jpg';
+    img.onload = function() {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    };
 }
 
 setInterval(draw, 33);
