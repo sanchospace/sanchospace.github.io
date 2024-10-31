@@ -1,13 +1,11 @@
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const letters = 'アカサタナハマヤラワガザダバパイキシチニヒミリギジヂビピウクスツヌフムユルグズヅブプエケセテネヘメレゲゼデベペオコソトノホモヨロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const fontSize = 16;
 const columns = canvas.width / fontSize;
-
 const drops = Array.from({ length: columns }).fill(1);
 
 function draw() {
@@ -17,7 +15,6 @@ function draw() {
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
     gradient.addColorStop(0, '#00f');
     gradient.addColorStop(1, '#f0f');
-
     ctx.fillStyle = gradient;
     ctx.font = `${fontSize}px monospace`;
 
