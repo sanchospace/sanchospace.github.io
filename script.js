@@ -29,9 +29,9 @@ function draw() {
         drops[index]++;
     });
 
-    ctx.globalCompositeOperation = 'source-over'; // Draw the image on top of the rain
+    ctx.globalCompositeOperation = 'blend'; // Draw the image on top of the rain
     const img = new Image();
-    img.src = 'imgs/sadako.jpg'; // Set the image source
+    img.src = 'imgs/abg.png'; // Set the image source
     img.onload = function () {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     };
