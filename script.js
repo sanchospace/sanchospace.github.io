@@ -29,12 +29,6 @@ function draw() {
         drops[index]++;
     });
 
-    ctx.globalCompositeOperation = 'blend'; // Draw the image on top of the rain
-    const img = new Image();
-    img.src = 'imgs/abg.png'; // Set the image source
-    img.onload = function () {
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    };
 }
 
 setInterval(draw, 33);
