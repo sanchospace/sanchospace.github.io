@@ -5,7 +5,7 @@ canvas.height = window.innerHeight;
 
 const letters = 'アカサタナハマヤラワガザダバパイキシチニヒミリギジヂビピウクスツヌフムユルグズヅブプエケセテネヘメレゲゼデベペオコソトノホモヨロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const fontSize = 16;
-const columns = canvas.width / fontSize;
+const columns = Math.floor(canvas.width / fontSize);
 const drops = Array.from({ length: columns }).fill(1);
 
 function draw() {
@@ -28,7 +28,6 @@ function draw() {
         }
         drops[index]++;
     });
-
 }
 
 setInterval(draw, 33);
