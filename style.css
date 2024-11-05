@@ -1,5 +1,3 @@
-
-}
 .background-image {
     position: fixed;
     top: 0;
@@ -8,7 +6,7 @@
     height: 100%;
     z-index: -1; /* Place the image behind the canvas */
     opacity: 0.5; /* Adjust opacity for blending */
-    background-image: url('');
+    background-image: url(''); /* Add the URL of your image here */
     background-size: cover;
     background-position: center;
 }
