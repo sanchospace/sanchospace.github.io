@@ -4,7 +4,12 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const matrix = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
+const matrix = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%アカサタナハマヤラワンアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン亜井運' +
+               '한글의' +
+               '中文汉字' +
+               'ภาษาไทยภาษา' +
+               'TiếngViệtTiếng';  // Adding characters from Vietnamese, Thai, Japanese, Korean, and Chinese
+
 const fontSize = 16;
 const columns = canvas.width / fontSize;
 
@@ -23,7 +28,7 @@ function draw() {
     gradient.addColorStop(1, '#0000ff'); // Blue
 
     ctx.fillStyle = gradient;
-    ctx.font = fontSize + 'px Arial';
+    ctx.font = fontSize + 'px Roboto';
 
     for (let i = 0; i < drops.length; i++) {
         const text = matrix[Math.floor(Math.random() * matrix.length)];
