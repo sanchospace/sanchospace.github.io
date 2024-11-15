@@ -1,3 +1,22 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+    background: black;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .background-image {
     position: fixed;
     top: 0;
@@ -6,7 +25,19 @@
     height: 100%;
     z-index: -1; /* Place the image behind the canvas */
     opacity: 0.5; /* Adjust opacity for blending */
-    background-image: url(''); /* Add the URL of your image here */
+    background-image: url('your-image-url.jpg'); /* Add the URL of your image here */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat; /* Ensure the image does not repeat */
+    background-attachment: fixed; /* Fix the background image position */
+    filter: brightness(0.7); /* Adjust the brightness for better blending */
+}
+
+.iframe-container {
+    position: relative;
+    z-index: 1;
+}
+
+iframe {
+    border: none;
 }
