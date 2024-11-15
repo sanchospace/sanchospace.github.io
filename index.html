@@ -33,6 +33,9 @@
             background-image: url('your-image-url.jpg'); /* Add the URL of your image here */
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat; /* Ensure the image does not repeat */
+            background-attachment: fixed; /* Fix the background image position */
+            filter: brightness(0.7); /* Adjust the brightness for better blending */
         }
         .iframe-container {
             position: relative;
@@ -75,8 +78,8 @@
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px arial';
+            ctx.fillStyle = '#FFF'; /* Your original font color */
+            ctx.font = fontSize + 'px Arial'; /* Your original font family */
 
             for (let i = 0; i < drops.length; i++) {
                 const text = matrix[Math.floor(Math.random() * matrix.length)];
