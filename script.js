@@ -1,39 +1,39 @@
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-const letters = 'アカサタナハマヤラワガザダバパイキシチニヒミリギジヂビピウクスツヌフムユルグズヅブプエケセテネヘメレゲゼデベペオコソトノホモヨロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const matrix = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
 const fontSize = 16;
-const columns = Math.floor(canvas.width / fontSize);
-const drops = Array.from({ length: columns }).fill(1);
+const columns = canvas.width / fontSize;
+
+const drops = [];
+for (let i = 0; i < columns; i++) {
+    drops[i] = 1;
+}
 
 function draw() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    gradient.addColorStop(0, '#00f');
-    gradient.addColorStop(1, '#f0f');
+    // Create gradient
+    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    gradient.addColorStop(0, '#4b0082'); // Dark purple
+    gradient.addColorStop(1, '#0000ff'); // Blue
+
     ctx.fillStyle = gradient;
-    ctx.font = `${fontSize}px monospace`;
+    ctx.font = fontSize + 'px Arial';
 
-    drops.forEach((y, index) => {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        const x = index * fontSize;
-        ctx.fillText(text, x, y * fontSize);
+    for (let i = 0; i < drops.length; i++) {
+        const text = matrix[Math.floor(Math.random() * matrix.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        if (y * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[index] = 0;
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
         }
-        drops[index]++;
-    });
+        drops[i]++;
+    }
 }
 
 setInterval(draw, 33);
