@@ -41,27 +41,19 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Read fonts and letters from file
-      - name: Read fonts and letters
-        id: read_fonts
-        run: |
-          echo "Reading fonts and letters..."
-          cat fonts_and_letters.txt
-
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v3
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: 'build'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
 
       # Notify on deployment success
       - name: Notify
         if: success()
         run: echo "Deployment to GitHub Pages was successful!"
-
