@@ -2,7 +2,7 @@ body {
     margin: 0;
     overflow: hidden; /* Prevent scrolling */
     background: black;
-    display: center;
+    display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh;
@@ -10,7 +10,7 @@ body {
 }
 
 canvas {
-    position: center;
+    position: fixed; /* Fix the canvas to cover the full screen */
     top: 0;
     left: 0;
     width: 100%;
@@ -19,7 +19,7 @@ canvas {
 }
 
 .background-image {
-    position: center;
+    position: fixed; /* Fix the image to cover the full screen */
     top: 0;
     left: 0;
     width: 100%;
@@ -34,5 +34,41 @@ canvas {
     filter: brightness(0.5); /* Adjust the brightness for better blending */
 }
 
-; /* Prevent scrolling within the iframe */
+.audio-player {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#play-pause {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#progress-container {
+    width: 300px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#progress-bar {
+    width: 0;
+    height: 100%;
+    background: #00ff00;
+    transition: width 0.1s;
 }
