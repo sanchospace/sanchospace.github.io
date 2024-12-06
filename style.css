@@ -34,12 +34,5 @@ canvas {
     filter: brightness(0.5); /* Adjust the brightness for better blending */
 }
 
-iframe {
-    position: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the iframe */
-    z-index: -1;
-    border: none;
-    pointer-events: none; /* Prevent scrolling within the iframe */
+; /* Prevent scrolling within the iframe */
 }
