@@ -1,3 +1,44 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const audio = new Audio('your-audio-file.mp3');
+    const playPauseBtn = document.getElementById('play-pause');
+    const progressBar = document.getElementById('progress-bar');
+    const volumeSlider = document.getElementById('volume-slider');
+    const trackTitle = document.getElementById('track-title');
+    const trackArtist = document.getElementById('track-artist');
+
+    audio.addEventListener('loadeddata', function() {
+        trackTitle.textContent = "Example Track";
+        trackArtist.textContent = "Example Artist";
+    });
+
+    playPauseBtn.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.textContent = 'Pause';
+        } else {
+            audio.pause();
+            playPauseBtn.textContent = 'Play';
+        }
+    });
+
+    audio.addEventListener('timeupdate', function() {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = progress + '%';
+    });
+
+    progressBar.addEventListener('click', function(e) {
+        const progressContainer = document.getElementById('progress-container');
+        const clickX = e.offsetX;
+        const width = progressContainer.clientWidth;
+        const duration = audio.duration;
+
+        audio.currentTime = (clickX / width) * duration;
+    });
+
+    volumeSlider.addEventListener('input', function() {
+        audio.volume = volumeSlider.value;
+    });
+});
 document.addEventListener("DOMContentLoaded", () => {
     // Matrix Rain Effect
     const canvas = document.getElementById('matrix');
