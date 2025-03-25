@@ -6,15 +6,16 @@ body {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh;
-    font-family: 'Roboto', sans-serif; /* Add Roboto font */
+    font-family: 'Press Start 2P', sans-serif; /* Change to Press Start font */
 }
 
-canvas {
-    position: fixed; /* Fix the canvas to cover the full screen */
+#particles-js {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: linear-gradient(to bottom, #4b0082, #6a0dad, #3333ff, #6666ff, #0000ff);
     z-index: 0;
 }
 
