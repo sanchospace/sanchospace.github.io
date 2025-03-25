@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             },
             color: {
-                value: '#ff0000' // Red color for dragon effect
+                value: ['#4b0082', '#6a0dad', '#3333ff', '#6666ff', '#0000ff'] // Gradient colors from dark purple to blues
             },
             shape: {
-                type: 'circle',
+                type: 'star', // Star shape
                 stroke: {
                     width: 0,
                     color: '#000000'
@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 bounce: false,
                 attract: {
                     enable: true,
-                    rotateX: 600,
-                    rotateY: 1200
+                    rotateX: 1200, // Increase value for stronger magnetic effect
+                    rotateY: 1200  // Increase value for stronger magnetic effect
                 }
             }
         },
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             detect_on: 'canvas',
             events: {
                 onhover: {
-                    enable: true,
+                    enable: false, // Disable bubble effect on hover
                     mode: 'repulse'
                 },
                 onclick: {
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 bubble: {
                     distance: 400,
-                    size: 40,
+                    size: 0, // Set bubble size to 0 to disable
                     duration: 2,
                     opacity: 8,
                     speed: 3

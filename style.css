@@ -6,16 +6,16 @@ body {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh;
-    font-family: 'Press Start 2P', sans-serif; /* Change to Press Start font */
+    font-family: 'Nunito', sans-serif; /* Change to Press Start font */
 }
 
 #particles-js {
-    position: fixed;
+    position: flex;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #4b0082, #6a0dad, #3333ff, #6666ff, #0000ff);
+    background: gradient(to bottom, #4b0082, #6a0dad, #3333ff, #6666ff, #0000ff);
     z-index: 0;
 }
 
@@ -26,7 +26,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1; /* Place the image behind the canvas */
-    opacity: 0.5; /* Adjust opacity for blending */
+    opacity: 0; /* Adjust opacity for blending */
     background-image: url('assets/your-image.jpg'); /* Add the URL of your image here */
     background-size: cover;
     background-position: center;
@@ -35,41 +35,5 @@ body {
     filter: brightness(0.5); /* Adjust the brightness for better blending */
 }
 
-.audio-player {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 5px;
-    backdrop-filter: blur(10px);
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
 
-#play-pause {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
 
-#progress-container {
-    width: 300px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    overflow: hidden;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-#progress-bar {
-    width: 0;
-    height: 100%;
-    background: #00ff00;
-    transition: width 0.1s;
-}
